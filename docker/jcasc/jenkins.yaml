@@ -20,7 +20,6 @@ tool:
   jdk:
     installations:
       - name: jdk16
-        home: "/jdk16"
         properties:
           - installSource:
               installers:
@@ -29,7 +28,6 @@ tool:
   maven:
     installations:
       - name: maven3
-        home: "/maven3"
         properties:
           - installSource:
               installers:
