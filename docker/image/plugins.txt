@@ -7,3 +7,4 @@ maven-plugin:3.18
 docker-plugin:1.2.7
 docker-workflow:1.28
 config-file-provider:3.9.0
+pipeline-utility-steps:2.12.0
