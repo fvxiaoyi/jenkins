@@ -1,0 +1,19 @@
+jobs:
+  - script: >
+      pipelineJob('demo') {
+          definition {
+              triggers {
+                  cron('H/5 * * * *')
+              }
+              cpsScm {
+                  scm {
+                    git {
+                        remote { url 'https://github.com/fvxiaoyi/gitops.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+                  scriptPath 'Jenkinsfile'
+              }
+          }
+      }

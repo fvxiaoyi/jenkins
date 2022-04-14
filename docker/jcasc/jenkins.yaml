@@ -1,0 +1,37 @@
+# link https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos
+
+jenkins:
+  numExecutors: 1
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+  labelString: "master-label"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: docker-login
+              username: ebinsu
+              password: suyibin..
+
+tool:
+  jdk:
+    installations:
+      - name: jdk16
+        home: "/jdk16"
+        properties:
+          - installSource:
+              installers:
+                - adoptOpenJdkInstaller:
+                    id: "jdk-16.0.2+7"
+  maven:
+    installations:
+      - name: maven3
+        home: "/maven3"
+        properties:
+          - installSource:
+              installers:
+                - maven:
+                    id: "3.8.5"
