@@ -36,3 +36,54 @@ controller:
                       installers:
                         - maven:
                             id: "3.8.5"
+
+      jobs: |
+        jobs:
+          - script: >
+              pipelineJob('demo') {
+                  definition {
+                      cpsScm {
+                          scm {
+                            git {
+                                remote { url 'https://github.com/fvxiaoyi/gitops.git' }
+                                branch '*/master'
+                                extensions {}
+                            }
+                          }
+                          scriptPath 'Jenkinsfile'
+                      }
+                  }
+              }
+
+      credentials: |
+        credentials:
+          system:
+            domainCredentials:
+              - credentials:
+                  - usernamePassword:
+                      scope: GLOBAL
+                      id: docker-login
+                      username: ebinsu
+                      password: suyibin..
+      unclassified: |
+        unclassified:
+          globalConfigFiles:
+            configs:
+              - globalMavenSettings:
+                  comment: "Maven Global settings"
+                  content: |
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+                      <mirrors>
+                        <mirror>
+                          <id>aliyunmaven</id>
+                          <mirrorOf>central</mirrorOf>
+                          <name>aliyun maven</name>
+                          <url>https://maven.aliyun.com/repository/public</url>
+                        </mirror>
+                      </mirrors>
+                    </settings>
+                  id: "global-maven-settings"
+                  isReplaceAll: true
+                  name: "global-maven-settings"
+                  providerId: "org.jenkinsci.plugins.configfiles.maven.GlobalMavenSettingsConfig"
