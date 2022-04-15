@@ -36,7 +36,6 @@ controller:
                       installers:
                         - maven:
                             id: "3.8.5"
-
       jobs: |
         jobs:
           - script: >
@@ -54,7 +53,6 @@ controller:
                       }
                   }
               }
-
       credentials: |
         credentials:
           system:
