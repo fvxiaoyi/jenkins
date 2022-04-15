@@ -3,8 +3,8 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
-#  additionalSecrets:
-#    - name: jenkins-secret
+  additionalSecrets:
+    - name: jenkins-secret
 #  additionalExistingSecrets:
 #    - name: jenkins-secret
 #      keyName: dockerhub-username
