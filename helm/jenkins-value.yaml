@@ -3,10 +3,11 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
-  secretClaims:
+  additionalExistingSecrets:
     - name: jenkins-secret
-      path: /run/secrets
-      renew: 60
+      keyName: dockerhub-username
+    - name: jenkins-secret
+      keyName: dockerhub-password
   installPlugins:
     - configuration-as-code:1414.v878271fc496f
     - workflow-aggregator:2.6
