@@ -13,8 +13,8 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: docker-login
-              username: ebinsu
-              password: suyibin..
+              username: ${readFile:/run/secrets/dockerhub-username}
+              password: ${readFile:/run/secrets/dockerhub-password}
 
 unclassified:
   globalConfigFiles:
