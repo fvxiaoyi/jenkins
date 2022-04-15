@@ -3,6 +3,10 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
+  secretClaims:
+    - name: jenkins-secret
+      path: /run/secrets
+      renew: 60
   installPlugins:
     - configuration-as-code:1414.v878271fc496f
     - workflow-aggregator:2.6
