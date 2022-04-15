@@ -62,8 +62,8 @@ controller:
                   - usernamePassword:
                       scope: GLOBAL
                       id: docker-login
-                      username: ebinsu
-                      password: suyibin..
+                      username: ${dockerhub-username}
+                      password: ${dockerhub-password}
       unclassified: |
         unclassified:
           globalConfigFiles:
