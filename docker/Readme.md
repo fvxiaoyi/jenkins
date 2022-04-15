@@ -24,3 +24,5 @@
 # More
 
 add plugin define into plugins.txt. find plugin in https://plugins.jenkins.io/
+
+folder no premisse. eg: chown -R 1000:1000 /var/jenkins_home
