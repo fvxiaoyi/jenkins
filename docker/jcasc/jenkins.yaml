@@ -13,7 +13,7 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: docker-login
-              username: ${readFile:/run/secrets/dockerhub-username}
+              username: ${dockerhub-username}
               password: ${dockerhub-password}
 
 unclassified:
