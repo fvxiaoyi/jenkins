@@ -9,7 +9,6 @@ controller:
     - name: jenkins-secret
       keyName: dockerhub-password
   persistence:
-    existingClaim: jenkins
     mounts:
       - mountPath: /var/run/docker.sock
         name: dockersock
@@ -45,6 +44,11 @@ controller:
     configScripts:
       config: |
         tool:
+          mavenGlobalConfig:
+            globalSettingsProvider:
+              mvn:
+                settingsConfigId: "global-maven-settings"
+            settingsProvider: "standard"
           jdk:
             installations:
               - name: jdk16
