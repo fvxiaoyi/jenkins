@@ -24,7 +24,10 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
-  runAsUser: 0
+  podSecurityContextOverride:
+    runAsUser: 0
+    fsGroup: 1000
+    runAsNonRoot: false
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
@@ -49,7 +52,9 @@ controller:
             globalSettingsProvider:
               mvn:
                 settingsConfigId: "global-maven-settings"
-            settingsProvider: "standard"
+            settingsProvider:
+              mvn:
+                settingsConfigId: "global-maven-settings"
           jdk:
             installations:
               - name: jdk16
