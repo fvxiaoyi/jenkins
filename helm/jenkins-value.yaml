@@ -35,7 +35,10 @@ controller:
       keyName: dockerhub-username
     - name: jenkins-secret
       keyName: dockerhub-password
-  additionalPlugins:
+  installPlugins:
+    - workflow-aggregator
+    - git
+    - configuration-as-code
     - adoptopenjdk
     - job-dsl
     - maven-plugin
