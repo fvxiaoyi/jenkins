@@ -20,6 +20,9 @@ controller:
       - mountPath: /root/.m2
         name: maven
         readOnly: false
+      - mountPath: /workspace
+        name: workspace
+        readOnly: false
     volumes:
       - name: docker
         hostPath:
@@ -30,6 +33,9 @@ controller:
       - name: maven
         hostPath:
           path: /root/.m2
+      - name: workspace
+        hostPath:
+          path: /workspace
   installPlugins:
     - configuration-as-code:1414.v878271fc496f
     - workflow-aggregator:2.6
