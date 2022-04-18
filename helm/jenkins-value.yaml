@@ -21,7 +21,7 @@ controller:
     - pipeline-utility-steps:2.12.0
   JCasC:
     configScripts:
-      addConfig: |
+      config: |
         tool:
           jdk:
             installations:
