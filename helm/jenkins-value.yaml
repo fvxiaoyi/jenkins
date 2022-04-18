@@ -24,8 +24,6 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
-  overrideArgs:
-    - "usermod -aG root jenkins"
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
