@@ -1,3 +1,5 @@
+agent:
+  enabled: false
 persistence:
   mounts:
     - mountPath: /var/run/docker.sock
