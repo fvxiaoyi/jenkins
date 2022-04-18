@@ -14,4 +14,3 @@ controller:
     - docker-workflow:1.28
     - config-file-provider:3.9.0
     - pipeline-utility-steps:2.12.0
-    - credentials:1118.v320cd028cb_a_0
