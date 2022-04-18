@@ -1,9 +1,21 @@
 persistence:
   mounts:
-    - mountPath: /maven/local-repo
+    - mountPath: /var/run/docker.sock
+      name: dockersock
+      readOnly: false
+    - mountPath: /usr/bin/docker
+      name: docker
+      readOnly: false
+    - mountPath: /root/.m2
       name: maven
       readOnly: false
   volumes:
+    - name: docker
+      hostPath:
+        path: /usr/bin/docker
+    - name: dockersock
+      hostPath:
+        path: /var/run/docker.sock
     - name: maven
       hostPath:
         path: /root/.m2
@@ -12,6 +24,8 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
+  overrideArgs:
+    - "usermod -aG root jenkins"
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
