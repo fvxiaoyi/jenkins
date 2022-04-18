@@ -21,7 +21,7 @@ controller:
     - pipeline-utility-steps:2.12.0
   JCasC:
     configScripts:
-      tool: |
+      addConfig: |
         tool:
           jdk:
             installations:
@@ -39,7 +39,22 @@ controller:
                       installers:
                         - maven:
                             id: "3.8.5"
-      credentials: |
+        jobs:
+          - script: >
+              pipelineJob('demo') {
+                  definition {
+                      cpsScm {
+                          scm {
+                            git {
+                                remote { url 'https://github.com/fvxiaoyi/gitops.git' }
+                                branch '*/master'
+                                extensions {}
+                            }
+                          }
+                          scriptPath 'Jenkinsfile'
+                      }
+                  }
+              }
         credentials:
           system:
             domainCredentials:
@@ -49,3 +64,24 @@ controller:
                       id: docker-login
                       username: ${jenkins-secret-dockerhub-username}
                       password: ${jenkins-secret-dockerhub-password}
+        unclassified:
+          globalConfigFiles:
+            configs:
+              - globalMavenSettings:
+                  comment: "Maven Global settings"
+                  content: |
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+                      <mirrors>
+                        <mirror>
+                          <id>aliyunmaven</id>
+                          <mirrorOf>central</mirrorOf>
+                          <name>aliyun maven</name>
+                          <url>https://maven.aliyun.com/repository/public</url>
+                        </mirror>
+                      </mirrors>
+                    </settings>
+                  id: "global-maven-settings"
+                  isReplaceAll: true
+                  name: "global-maven-settings"
+                  providerId: "org.jenkinsci.plugins.configfiles.maven.GlobalMavenSettingsConfig"
