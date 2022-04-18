@@ -59,16 +59,6 @@ controller:
                       }
                   }
               }
-      credentials: |
-        credentials:
-          system:
-            domainCredentials:
-              - credentials:
-                  - usernamePassword:
-                      scope: GLOBAL
-                      id: docker-login
-                      username: ${jenkins-secret-dockerhub-username}
-                      password: ${jenkins-secret-dockerhub-password}
       unclassified: |
         unclassified:
           globalConfigFiles:
