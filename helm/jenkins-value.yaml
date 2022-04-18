@@ -65,7 +65,7 @@ controller:
                   - installSource:
                       installers:
                         - maven:
-                            id: "3.8.5"
+                            id: "3.8.5"        
         jobs:
           - script: >
               pipelineJob('demo') {
