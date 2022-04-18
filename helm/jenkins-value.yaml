@@ -29,7 +29,7 @@ controller:
   containerSecurityContext:
     runAsUser: 0
     runAsGroup: 0
-    readOnlyRootFilesystem: true
+    readOnlyRootFilesystem: false
     allowPrivilegeEscalation: false
   additionalExistingSecrets:
     - name: jenkins-secret
