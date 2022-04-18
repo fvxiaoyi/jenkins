@@ -1,5 +1,4 @@
 persistence:
-  existingClaim: jenkins
   mounts:
     - mountPath: /var/run/docker.sock
       name: dockersock
