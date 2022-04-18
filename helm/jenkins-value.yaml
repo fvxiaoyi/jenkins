@@ -9,6 +9,7 @@ controller:
     - name: jenkins-secret
       keyName: dockerhub-password
   persistence:
+    existingClaim: jenkins
     mounts:
       - mountPath: /var/run/docker.sock
         name: dockersock
