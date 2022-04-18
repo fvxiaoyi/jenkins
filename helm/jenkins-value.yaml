@@ -26,6 +26,11 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
+  containerSecurityContext:
+    runAsUser: 0
+    runAsGroup: 0
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
