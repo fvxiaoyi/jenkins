@@ -3,9 +3,9 @@ controller:
   adminPassword: admin
   serviceType: NodePort
   nodePort: 31000
-  additionalExistingSecrets:
-    - name: jenkins-secret
-      keyName: dockerhub-username
+#  additionalExistingSecrets:
+#    - name: jenkins-secret
+#      keyName: dockerhub-username
 #    - name: jenkins-secret
 #      keyName: dockerhub-password
   installPlugins:
