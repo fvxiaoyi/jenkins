@@ -29,17 +29,14 @@ controller:
       keyName: dockerhub-username
     - name: jenkins-secret
       keyName: dockerhub-password
-  installPlugins:
-    - configuration-as-code:1414.v878271fc496f
-    - workflow-aggregator:2.6
-    - adoptopenjdk:1.4
-    - job-dsl:1.78.3
-    - git:4.0.0
-    - maven-plugin:3.18
-    - docker-plugin:1.2.7
-    - docker-workflow:1.28
-    - config-file-provider:3.9.0
-    - pipeline-utility-steps:2.12.0
+  additionalPlugins:
+    - adoptopenjdk
+    - job-dsl
+    - maven-plugin
+    - docker-plugin
+    - docker-workflow
+    - config-file-provider
+    - pipeline-utility-steps
   JCasC:
     configScripts:
       config: |
