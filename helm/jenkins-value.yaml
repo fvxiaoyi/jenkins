@@ -30,7 +30,7 @@ controller:
     runAsUser: 0
     runAsGroup: 0
     readOnlyRootFilesystem: false
-    allowPrivilegeEscalation: false
+    allowPrivilegeEscalation: true
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
