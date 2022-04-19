@@ -28,8 +28,8 @@ controller:
   nodePort: 31000
   podSecurityContextOverride:
     runAsUser: 0
-    runAsNonRoot: false
-    supplementalGroups: [1000]
+    runAsGroup: 0
+    fsGroup: 0
   additionalExistingSecrets:
     - name: jenkins-secret
       keyName: dockerhub-username
