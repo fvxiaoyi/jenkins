@@ -36,7 +36,6 @@ controller:
     - name: jenkins-secret
       keyName: dockerhub-password
   installPlugins:
-    - kubernetes
     - workflow-aggregator
     - git
     - configuration-as-code
@@ -48,6 +47,7 @@ controller:
     - config-file-provider
     - pipeline-utility-steps
   JCasC:
+    defaultConfig: false
     configScripts:
       config: |
         tool:
